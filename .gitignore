@@ -1,3 +1,4 @@
-resume.md
-*.pdf
 .DS_STORE
+.vscode
+*.pdf
+resume.md
