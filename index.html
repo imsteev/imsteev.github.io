@@ -8,28 +8,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
   <link href="style.css" rel="stylesheet" type="text/css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-  <section class="hero is-dark">
-    <div class="hero-body">
-      <div class="container is-fluid">
-        <h1 class="title is-1">
-          Hello! I'm a software engineer.
-        </h1>
-        <h4>Currently 👨‍💻 at <a id="current-company" target="_blank"
-            href="https://www.ultimatesoftware.com/UltiPro-Solution-Features-Employee-Surveys">Ultimate Software</a>
-        </h4>
+  <div id="app">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-fluid">
+          <h1 class="title is-1">
+            Hello! I'm Stephen
+          </h1>
+          <h4>
+            Currently 👨‍💻 at <a id="current-company" target="_blank" v-bind:href="currentCompanyLink">{{ currentCompany }}</a>
+          </h4>
+          <div class="tabs">
+            <ul>
+              <li class="is-active"><a>About</a></li>
+              <li><a>Thoughts</a></li>
+              <li><a>Resume</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div id="resume" class="columns">
-      <iframe class="column is-full" frameborder="0" scrolling="no"
-        src="https://drive.google.com/file/d/1X43rUcX2k3n5XGqOZ2brH6X4byXQ40wl/preview"></iframe>
-    </div>
-    </div>
-  </section>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <h1>FOOTER</h1>
+      </div>
+    </footer>
+  </div>
+  <script src="./index.js"></script>
 </body>
 
 </html>
