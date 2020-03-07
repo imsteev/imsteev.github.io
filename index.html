@@ -13,65 +13,69 @@
 
 <body>
   <div id="app">
-    <section class="hero is-dark">
+    <section class="hero" style="background-color: hsl(48, 100%, 67%);">
       <div class="hero-body">
-        <div class="container is-fluid">
-          <h1 class="title">Hello! I'm Stephen</h1>
-          <h2 class="subtitle has-text-grey-light">Currently 👨‍💻 at <a id="current-company" target="_blank" v-bind:href="currentCompanyLink">{{ currentCompany }}</a></h2>
+        <div class="container is-fluid columns">
+          <div class="column">
+            <h1 class="title">Hello! I'm Stephen</h1>
+            <h2 class="subtitle has-text-grey">Currently 👨‍💻 at <a id="current-company" target="_blank"
+                v-bind:href="currentCompanyLink">{{ currentCompany }}</a></h2>
+          </div>
+          <div class="column">
+            <nav class="level">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">LinkedIn</p>
+                  <p class="title">
+                    <a target="_blank" href="https://linkedin.com/in/imsteev">
+                      <span class="icon is-large">
+                        <i class="fab fa-linkedin fa-lg has-text-black"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Github</p>
+                  <p class="title">
+                    <a target="_blank" href="https://github.com/imsteev">
+                      <span class="icon is-large">
+                        <i class="fab fa-github-alt fa-lg has-text-black"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Resume</p>
+                  <p class="title">
+                    <a target="_blank"
+                      href="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub">
+                      <span class="icon is-large">
+                        <i class="fas fa-file fa-lg has-text-black"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     </section>
     <section>
       <div class="container">
         <post-container>
-          <blog-post v-bind:post="aboutPost" v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
+          <blog-post v-bind:post="aboutPost"
+            v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
         </post-container>
       </div>
     </section>
-    <footer class="footer" v-bind:style="{ position: 'fixed', bottom: '0px', width: '100%' }">
-      <div class="content has-text-centered">
-        <nav class="level">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">LinkedIn</p>
-              <p class="title">
-                <a target="_blank" href="https://linkedin.com/in/imsteev">
-                  <span class="icon is-large">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                  </span>
-                </a>
-              </p>
-            </div>
-          </div>
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">Github</p>
-              <p class="title">
-                <a target="_blank" href="https://github.com/imsteev">
-                  <span class="icon is-large">
-                    <i class="fab fa-github-alt fa-lg has-text-black"></i>
-                  </span>
-                </a>
-              </p>
-            </div>
-          </div>
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">Resume</p>
-              <p class="title">
-                <a target="_blank" href="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub">
-                  <span class="icon is-large">
-                    <i class="fas fa-file fa-lg has-text-black"></i>
-                  </span>
-                </a>
-              </p>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </footer>
   </div>
   <script>
+
     Vue.component('blog-post', {
       props: ['post'],
       template: `
@@ -97,17 +101,6 @@
       `
     })
 
-
-    let aboutPost = {
-      title: 'First Post',
-      date: "March 6th, 2020",
-      content: `
-        Welcome, Internet! Here you will find some random stuff.
-      `
-    }
-
-
-
     let app = new Vue({
       el: '#app',
       data: {
@@ -115,7 +108,13 @@
         resumeLink: '',
         currentCompany: 'Ultimate Software',
         currentCompanyLink: 'https://www.ultimatesoftware.com/UltiPro-Solution-Features-Employee-Surveys',
-        aboutPost: aboutPost
+        aboutPost: {
+          title: 'First Post',
+          date: "March 6th, 2020",
+          content: `
+            Welcome, Internet! Here you will find some random stuff.
+          `
+        }
       }
     })
   </script>
