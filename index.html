@@ -78,7 +78,7 @@
         </div>
         <div class="column is-full">
           <post-container>
-            <blog-post v-bind:post="aboutPost"
+            <blog-post v-for="post in posts" v-bind:post="post" track-by="_uid"
               v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
           </post-container>
         </div>
@@ -90,7 +90,7 @@
     Vue.component('blog-post', {
       props: ['post'],
       template: `
-        <div class="card" style="cursor: default;">
+        <div class="card" style="cursor: default; margin-bottom: 32px;">
           <header class="card-header">
             <p class="card-header-title">
               {{ post.title }}
@@ -112,6 +112,18 @@
       `
     })
 
+    function Post(title, date, content) {
+      return {
+        title: title,
+        date: date,
+        content: content
+      }
+    }
+
+    let posts = [
+      Post('First Post', 'March 6th, 2020', 'Welcome, Internet! Here you will find some random stuff.'),
+    ]
+
     let app = new Vue({
       el: '#app',
       data: {
@@ -119,13 +131,7 @@
         resumeLink: '',
         currentCompany: 'Ultimate Software',
         currentCompanyLink: 'https://www.ultimatesoftware.com/UltiPro-Solution-Features-Employee-Surveys',
-        aboutPost: {
-          title: 'First Post',
-          date: "March 6th, 2020",
-          content: `
-            Welcome, Internet! Here you will find some random stuff.
-          `
-        }
+        posts: posts
       }
     })
   </script>
