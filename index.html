@@ -66,14 +66,15 @@
         </div>
       </div>
     </section>
+
     <section>
       <div class="container columns" style="margin-top: 32px;">
-        <div class="column has-text-centered is-offset-1 is-one-fifth">
+        <div class="column has-text-centered is-offset-1 is-2">
           <p class="menu-label">
             All Posts
           </p>
           <ul class="menu-list">
-            <li><a>First Post</a></li>
+            <li v-for="post in posts"><a>{{ post.title }}</a></li>
           </ul>
         </div>
         <div class="column is-full">
@@ -90,7 +91,7 @@
     Vue.component('blog-post', {
       props: ['post'],
       template: `
-        <div class="card" style="cursor: default; margin-bottom: 32px;">
+        <div class="card" style="cursor: default; margin-bottom: 48px;">
           <header class="card-header">
             <p class="card-header-title">
               {{ post.title }}
@@ -122,6 +123,11 @@
 
     let posts = [
       Post('First Post', 'March 6th, 2020', 'Welcome, Internet! You\'ll likely find some random stuff here.'),
+      Post('box-shadow', 'March 6th, 2020', 'box-shadow'),
+      Post('1, 2, 3 or 4?', 'March 6th, 2020', 'CSS shorthand'),
+      Post('Lessons Learned', 'March 6th, 2020', 'lesson'),
+      Post('Lessons Learned 2', 'March 6th, 2020', 'lesson'),
+      Post('Lessons Learned 3', 'March 6th, 2020', 'lesson'),
     ]
 
     let app = new Vue({
