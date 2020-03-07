@@ -21,6 +21,7 @@
             <h2 class="subtitle has-text-grey">Currently 👨‍💻 at <a id="current-company" target="_blank"
                 v-bind:href="currentCompanyLink">{{ currentCompany }}</a></h2>
           </div>
+
           <div class="column">
             <nav class="level">
               <div class="level-item has-text-centered">
@@ -66,11 +67,21 @@
       </div>
     </section>
     <section>
-      <div class="container">
-        <post-container>
-          <blog-post v-bind:post="aboutPost"
-            v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
-        </post-container>
+      <div class="container columns" style="margin-top: 32px;">
+        <div class="column has-text-centered is-offset-1 is-one-fifth">
+          <p class="menu-label">
+            All Posts
+          </p>
+          <ul class="menu-list">
+            <li><a>First Post</a></li>
+          </ul>
+        </div>
+        <div class="column is-full">
+          <post-container>
+            <blog-post v-bind:post="aboutPost"
+              v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
+          </post-container>
+        </div>
       </div>
     </section>
   </div>
