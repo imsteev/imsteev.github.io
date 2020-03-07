@@ -1,3 +1,3 @@
 Deployed on GitHub Pages
 
-[http://whosteev.org](whosteev.org)
+[whosteev.org](http://whosteev.org)
