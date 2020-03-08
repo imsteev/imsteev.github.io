@@ -123,11 +123,55 @@
 
     let posts = [
       Post('First Post', 'March 6th, 2020', 'Welcome, Internet! You\'ll likely find some random stuff here.'),
-      Post('box-shadow', 'March 6th, 2020', 'box-shadow'),
-      Post('1, 2, 3 or 4?', 'March 6th, 2020', 'CSS shorthand'),
-      Post('Lessons Learned', 'March 6th, 2020', 'lesson'),
-      Post('Lessons Learned 2', 'March 6th, 2020', 'lesson'),
-      Post('Lessons Learned 3', 'March 6th, 2020', 'lesson'),
+      Post('Union Find', 'March 7th, 2020', `
+        <p>
+          Union Find (UF) is a versatile data structure/algorithm useful in many graph problems.
+          More specifically, if a problem is concerned about connectivity, there's a good chance Union Find can be used.
+        </p>
+        <br>
+        <p>Let's break down a basic implementation.</p>
+        <br>
+        <p>
+          <span><strong>Data Structure</strong></span>
+          <p>
+            At its core, a UF data structure needs to be able to quickly look up who a vertex's
+            <strong>representative</strong> is in the graph. Initially, each vertex is it's own representative.
+            As you "union" connected vertices (i.e, an edge) according to the problem you are trying to solve, a vertex's representative can change.
+            This is the key to knowing which node can reach which node!
+          </p>
+        </p>
+        <br>
+        <p>
+          <span><strong>Algorithm</strong></span>
+          <p>
+            Two primary methods are needed. Given a node, <code>find</code> returns the root representative vertex of that node. Given two nodes, <code>union</code> will make one node the representative of another, if needed.
+            <hr>
+
+            <pre>
+class UnionFind:
+    def __init__(self, nodes):
+        self.parents = {node: node for node in nodes}  # each node is its own representative
+
+    def find(node):
+        while self.parents[node] != node:
+            node = self.parents[node]
+        return node
+
+    def union(node1, node2):
+        root1, root2 = find(node1), find(node2)  # <-- this is important!
+        if root1 == root2:
+            return False
+        self.parents[root1] = root2
+        return True
+</pre>
+          </p>
+        </p>
+        <br>
+        <p>
+          Click <a target="_blank" href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure"><span>here</span></a> to learn more
+        </p>
+
+      `),
     ]
 
     let app = new Vue({
