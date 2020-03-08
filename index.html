@@ -114,6 +114,8 @@
     })
 
     function Post(title, date, content) {
+      let d = new Date(date);
+      console.log(d.getMonth())
       return {
         title: title,
         date: date,
@@ -150,7 +152,7 @@
             <pre>
 class UnionFind:
     def __init__(self, nodes):
-        self.parents = {node: node for node in nodes}  # each node is its own representative
+        self.parents = {node: node for node in nodes}  # initially self-representative
 
     def find(node):
         while self.parents[node] != node:
