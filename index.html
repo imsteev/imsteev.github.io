@@ -13,15 +13,17 @@
 
 <body>
   <div id="app">
-    <section class="hero" style="background-color: hsl(48, 100%, 67%);">
+    <!-- BANNER -->
+    <section class="hero" style="background-color: hsl(48, 100%, 67%); box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.38);">
       <div class="hero-body">
         <div class="container is-fluid columns">
           <div class="column">
             <h1 class="title">Hello! I'm Stephen</h1>
-            <h2 class="subtitle has-text-grey">Currently 👨‍💻 at <a id="current-company" target="_blank"
+            <h2 class="subtitle has-text-grey">Currently 👨🏻‍💻 at <a id="current-company" target="_blank"
                 v-bind:href="currentCompanyLink">{{ currentCompany }}</a></h2>
           </div>
 
+          <!-- LINKS -->
           <div class="column">
             <nav class="level">
               <div class="level-item has-text-centered">
@@ -68,15 +70,13 @@
     </section>
 
     <section>
+
       <div class="container columns" style="margin-top: 32px;">
+        <!-- MUSIC -->
         <div class="column has-text-centered is-offset-1 is-2">
-          <p class="menu-label">
-            All Posts
-          </p>
-          <ul class="menu-list">
-            <li v-for="post in posts"><a>{{ post.title }}</a></li>
-          </ul>
+          <iframe src="https://open.spotify.com/embed/track/15481IGtDKCxX5KE54k3Aa" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
+        <!-- POSTS -->
         <div class="column is-full">
           <post-container>
             <blog-post v-for="post in posts" v-bind:post="post" track-by="_uid"
@@ -181,7 +181,7 @@ class UnionFind:
         resumeLink: '',
         currentCompany: 'Ultimate Software',
         currentCompanyLink: 'https://www.ultimatesoftware.com/UltiPro-Solution-Features-Employee-Surveys',
-        posts: posts
+        posts: posts,
       }
     })
   </script>
