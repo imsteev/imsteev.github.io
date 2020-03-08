@@ -12,7 +12,9 @@
 </head>
 
 <body>
+  <!-- VUE APP -->
   <div id="app">
+
     <!-- BANNER -->
     <section class="hero" style="background-color: hsl(48, 100%, 67%); box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.38);">
       <div class="hero-body">
@@ -27,41 +29,17 @@
           <div class="column">
             <nav class="level">
               <div class="level-item has-text-centered">
-                <div>
-                  <p class="heading">LinkedIn</p>
-                  <p class="title">
-                    <a target="_blank" href="https://linkedin.com/in/imsteev">
-                      <span class="icon is-large">
-                        <i class="fab fa-linkedin fa-lg has-text-black"></i>
-                      </span>
-                    </a>
-                  </p>
-                </div>
+                <icon-link icon-label="LinkedIn" icon-class="fab fa-linkedin"
+                  resource="https://linkedin.com/in/imsteev"></icon-link>
               </div>
               <div class="level-item has-text-centered">
-                <div>
-                  <p class="heading">Github</p>
-                  <p class="title">
-                    <a target="_blank" href="https://github.com/imsteev">
-                      <span class="icon is-large">
-                        <i class="fab fa-github-alt fa-lg has-text-black"></i>
-                      </span>
-                    </a>
-                  </p>
-                </div>
+                <icon-link icon-label="Github" icon-class="fab fa-github-alt" resource="https://github.com/imsteev">
+                </icon-link>
               </div>
               <div class="level-item has-text-centered">
-                <div>
-                  <p class="heading">Resume</p>
-                  <p class="title">
-                    <a target="_blank"
-                      href="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub">
-                      <span class="icon is-large">
-                        <i class="fas fa-file fa-lg has-text-black"></i>
-                      </span>
-                    </a>
-                  </p>
-                </div>
+                <icon-link icon-label="Resume" icon-class="fas fa-file"
+                  resource="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub">
+                </icon-link>
               </div>
             </nav>
           </div>
@@ -69,13 +47,16 @@
       </div>
     </section>
 
+    <!-- CONTENT -->
     <section>
-
       <div class="container columns" style="margin-top: 32px;">
+
         <!-- MUSIC -->
         <div class="column has-text-centered is-offset-1 is-2">
-          <iframe src="https://open.spotify.com/embed/track/15481IGtDKCxX5KE54k3Aa" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <iframe src="https://open.spotify.com/embed/track/15481IGtDKCxX5KE54k3Aa" width="300" height="380"
+            frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
+
         <!-- POSTS -->
         <div class="column is-full">
           <post-container>
@@ -83,11 +64,13 @@
               v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
           </post-container>
         </div>
+
       </div>
     </section>
-  </div>
-  <script>
 
+  </div>
+
+  <script>
     Vue.component('blog-post', {
       props: ['post'],
       template: `
@@ -109,6 +92,22 @@
           <div class="column is-8 is-offset-2">
             <slot></slot>
           </div>
+        </div>
+      `
+    })
+
+    Vue.component('icon-link', {
+      props: ['iconLabel', 'resource', 'iconClass'],
+      template: `
+        <div>
+          <p class="heading">{{ iconLabel }}</p>
+          <p class="title">
+            <a target="_blank" v-bind:href="resource">
+              <span class="icon is-large">
+                <i v-bind:class="iconClass + ' fa-lg has-text-black'"></i>
+              </span>
+            </a>
+          </p>
         </div>
       `
     })
