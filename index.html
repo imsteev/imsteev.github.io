@@ -1,83 +1,109 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stephen Chung</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stephen Chung</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
+  <body>
+    <!-- VUE APP -->
+    <div id="app">
+      <!-- BANNER -->
+      <section
+        class="hero"
+        style="
+          background-color: hsl(48, 100%, 67%);
+          box-shadow: 6px 3px 5px 0px rgba(0, 0, 0, 0.38);
+        "
+      >
+        <div class="hero-body">
+          <div class="container is-fluid columns">
+            <div class="column">
+              <h1 class="title">Stephen Chung</h1>
+              <h2 class="subtitle has-text-grey"></h2>
+            </div>
 
-<body>
-  <!-- VUE APP -->
-  <div id="app">
+            <!-- LINKS -->
+            <div class="column">
+              <nav class="level">
+                <div class="level-item has-text-centered">
+                  <icon-link
+                    icon-label="LinkedIn"
+                    icon-class="fab fa-linkedin"
+                    resource="https://linkedin.com/in/imsteev"
+                  ></icon-link>
+                </div>
+                <div class="level-item has-text-centered">
+                  <icon-link
+                    icon-label="Github"
+                    icon-class="fab fa-github-alt"
+                    resource="https://github.com/imsteev"
+                  >
+                  </icon-link>
+                </div>
+                <div class="level-item has-text-centered">
+                  <icon-link
+                    icon-label="Resume"
+                    icon-class="fas fa-file"
+                    resource="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub"
+                  >
+                  </icon-link>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- BANNER -->
-    <section class="hero" style="background-color: hsl(48, 100%, 67%); box-shadow: 6px 3px 5px 0px rgba(0,0,0,0.38);">
-      <div class="hero-body">
-        <div class="container is-fluid columns">
-          <div class="column">
-            <h1 class="title">Hello! I'm Stephen</h1>
-            <h2 class="subtitle has-text-grey">Currently 👨🏻‍💻 at <a id="current-company" target="_blank"
-                v-bind:href="currentCompanyLink">{{ currentCompany }}</a></h2>
+      <!-- CONTENT -->
+      <section>
+        <div class="container columns" style="margin-top: 32px;">
+          <!-- MUSIC -->
+          <div class="column has-text-centered is-offset-1 is-2">
+            <iframe
+              src="https://open.spotify.com/embed/track/42zd6DYQ4o4SECmTITrM1U"
+              width="300"
+              height="380"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
           </div>
 
-          <!-- LINKS -->
-          <div class="column">
-            <nav class="level">
-              <div class="level-item has-text-centered">
-                <icon-link icon-label="LinkedIn" icon-class="fab fa-linkedin"
-                  resource="https://linkedin.com/in/imsteev"></icon-link>
-              </div>
-              <div class="level-item has-text-centered">
-                <icon-link icon-label="Github" icon-class="fab fa-github-alt" resource="https://github.com/imsteev">
-                </icon-link>
-              </div>
-              <div class="level-item has-text-centered">
-                <icon-link icon-label="Resume" icon-class="fas fa-file"
-                  resource="https://docs.google.com/document/d/e/2PACX-1vS9TB_kKHoojKojyBV87BEvQymTIgwLRRDi57NCsnyX0u2FbVuMEQkqBV440oI55nw0rue9ksQfn4Rl/pub">
-                </icon-link>
-              </div>
-            </nav>
+          <!-- POSTS -->
+          <div class="column is-full">
+            <post-container>
+              <blog-post
+                v-for="post in posts.slice().reverse()"
+                v-bind:post="post"
+                track-by="_uid"
+                v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"
+              ></blog-post>
+            </post-container>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- CONTENT -->
-    <section>
-      <div class="container columns" style="margin-top: 32px;">
-
-        <!-- MUSIC -->
-        <div class="column has-text-centered is-offset-1 is-2">
-          <iframe src="https://open.spotify.com/embed/track/15481IGtDKCxX5KE54k3Aa" width="300" height="380"
-            frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-
-        <!-- POSTS -->
-        <div class="column is-full">
-          <post-container>
-            <blog-post v-for="post in posts.slice().reverse()" v-bind:post="post" track-by="_uid"
-              v-bind:style="{ boxShadow: '6px 3px 5px 0px rgba(0,0,0,0.38)', border: 'solid 0.5px' }"></blog-post>
-          </post-container>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    Vue.component('blog-post', {
-      props: ['post'],
-      template: `
+    <script>
+      Vue.component("blog-post", {
+        props: ["post"],
+        template: `
         <div class="card" style="cursor: default; margin-bottom: 48px;">
           <header class="card-header">
             <p class="card-header-title">
@@ -87,22 +113,22 @@
           </header>
           <div class="card-content" v-html="post.content"></div>
         </div>
-      `
-    })
+      `,
+      });
 
-    Vue.component('post-container', {
-      template: `
+      Vue.component("post-container", {
+        template: `
         <div class="columns" style="margin-top: 32px;">
           <div class="column is-8 is-offset-2">
             <slot></slot>
           </div>
         </div>
-      `
-    })
+      `,
+      });
 
-    Vue.component('icon-link', {
-      props: ['iconLabel', 'resource', 'iconClass'],
-      template: `
+      Vue.component("icon-link", {
+        props: ["iconLabel", "resource", "iconClass"],
+        template: `
         <div>
           <p class="heading">{{ iconLabel }}</p>
           <p class="title">
@@ -113,22 +139,29 @@
             </a>
           </p>
         </div>
-      `
-    })
+      `,
+      });
 
-    function Post(title, date, content) {
-      let d = new Date(date);
-      console.log(d.getMonth())
-      return {
-        title: title,
-        date: date,
-        content: content
+      function Post(title, date, content) {
+        let d = new Date(date);
+        console.log(d.getMonth());
+        return {
+          title: title,
+          date: date,
+          content: content,
+        };
       }
-    }
 
-    let posts = [
-      Post('First Post', 'March 6th, 2020', 'Welcome, Internet! You\'ll likely find some random stuff here.'),
-      Post('Union Find', 'March 7th, 2020', `
+      let posts = [
+        Post(
+          "First Post",
+          "March 6th, 2020",
+          "Welcome, Internet! You'll likely find some random stuff here."
+        ),
+        Post(
+          "Union Find",
+          "March 7th, 2020",
+          `
         <p>
           Union Find (UF) is a versatile data structure/algorithm useful in many graph problems.
           More specifically, if a problem is concerned about connectivity, there's a good chance Union Find can be used.
@@ -175,8 +208,12 @@ class UnionFind:
         <p>
           Click <a target="_blank" href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure"><span>here</span></a> to learn more
         </p>
-      `),
-      Post('Great Movies', 'March 8th, 2020', `
+      `
+        ),
+        Post(
+          "Great Movies",
+          "March 8th, 2020",
+          `
         <div>
           <ul>
             <li>Just Mercy</li>
@@ -187,20 +224,62 @@ class UnionFind:
             <li>Good Time</li>
           </ul>
         </div>
-      `),
-    ]
+      `
+        ),
+        Post(
+          "Unrest",
+          "May 31, 2020",
+          `
+        <p>
+        In hindsight, growing up in a relatively sheltered, educated, and diverse neighborhood, I feel privileged to be living my life as an Asian American. For this reason, I don't feel entitled to the conviction that the world is feeling. But I am hurt. I am angry, I am confused, I am baffled, I am tired.
+        </p>
+        <br>
+        <p>
+        Every word that comes out of Trump's mouth fuels a growing rage.
+        </p>
+        <p>
+        Blind eyes to <strong>basic common sense</strong>.
+        </p>
+        <p>
+        Inequality is a reality.
+        </p>
+        <br>
+        <p>
+        What this all boils down to: <strong>dumb</strong>, <strong>racist</strong>, and <strong>ignorant bigots</strong> in power.
+        </p>
+        <br>
+        <ul>
+          <li>What will push the country for tangible change?</li>
+          <li>Why won't "authorities" proactively open their eyes to systemic racism?</li>
+          <li>How many "accidental" martyrs does the country need?</li>
+          <li>Who watches the events happening and says "this is just another accident"?</li>
+          <li>When will we redefine justice?</li>
+        </ul>
+        <br>
+        <h1 style="font-size: 1.5rem; font-weight: bold;">Why would a cop put a knee on someone's neck for 540 seconds?</h1>
 
-    let app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!',
-        resumeLink: '',
-        currentCompany: 'Silo',
-        currentCompanyLink: 'https://medium.com/silo-blog',
-        posts: posts,
-      }
-    })
-  </script>
-</body>
+        <br>
+        <p>
+        I urge everyone to reflect and ask themselves these questions, and I hope you feel as troubled as I do.
+        </p>
+        <br>
+        <p style="font-size: 0.7rem; display: flex; justify-content: center;">
+        FTP <br>
+        F12 <br>
+        BLM <br>
+        </p>
+      `
+        ),
+      ];
 
+      let app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello Vue!",
+          resumeLink: "",
+          posts: posts,
+        },
+      });
+    </script>
+  </body>
 </html>
