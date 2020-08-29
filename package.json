@@ -1,8 +1,0 @@
-{
-  "name": "personal-website",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/imsteev/imsteev.github.io.git",
-  "author": "Stephen Chung <spchung95@gmail.com>",
-  "license": "MIT"
-}
