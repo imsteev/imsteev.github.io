@@ -16,9 +16,13 @@ function App() {
       <Meta>
         <div>Stephen Chung</div>
         <div>
-          <Link href="https://www.github.com/imsteev">Github</Link>
+          <Link href="https://www.github.com/imsteev" target="_blank">
+            github
+          </Link>
           &nbsp;
-          <Link href="https://www.linkedin.com/in/imsteev/">LinkedIn</Link>
+          <Link href="https://www.linkedin.com/in/imsteev/" target="_blank">
+            linkedin
+          </Link>
         </div>
       </Meta>
       <Header>Year 2020</Header>
