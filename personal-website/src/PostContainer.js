@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 /**
@@ -22,7 +22,10 @@ const Post = ({ children, date, title, enclosedTitle = false }) => {
  */
 const PostContainer = () => (
   <StyledPostContainer>
-    <Post title="CSS Practice">
+    <Post title="Shiba Generator" date="August 31" enclosedTitle>
+      <RandomDog breed="shiba" />
+    </Post>
+    <Post title="CSS Practice" date="August 30" enclosedTitle>
       <CssPractice1 />
     </Post>
     <Post date="August 29" title="v2" enclosedTitle>
@@ -83,6 +86,63 @@ const PostContainer = () => (
   </StyledPostContainer>
 );
 
+const RandomDog = ({ breed }) => {
+  const [randomDogUrl, setRandomDogUrl] = useState("");
+
+  const randomDogRefresh = () => {
+    fetch(`https://dog.ceo/api/breed/${breed}/images/random`, {})
+      .then((resp) => {
+        if (!resp.ok) {
+          throw "Request failed";
+        }
+        return resp.json();
+      })
+      .then((jsonResp) => setRandomDogUrl(jsonResp.message))
+      .catch(console.log);
+  };
+  useEffect(() => {
+    randomDogRefresh();
+  }, []);
+
+  return (
+    <div>
+      {randomDogUrl && (
+        <>
+          <Button onClick={randomDogRefresh}>another {breed}</Button>
+
+          <Flex>
+            <figure style={{ padding: 0, margin: "1rem 0" }}>
+              {randomDogUrl && <img alt="random-shiba" src={randomDogUrl} />}
+            </figure>
+          </Flex>
+        </>
+      )}
+    </div>
+  );
+};
+
+const Button = styled.button`
+  border: none;
+  cursor: pointer;
+  padding: 0 1.4rem;
+  height: 3rem;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 3px 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #004e89;
+  color: #f0efeb;
+  transition: all 0.3s;
+  :hover {
+    opacity: 0.8;
+  }
+  :active {
+    box-shadow: none;
+  }
+  :focus {
+    outline: none;
+  }
+`;
+
 const StyledPostContainer = styled.div`
   display: grid;
 `;
@@ -108,14 +168,14 @@ const Pace = keyframes`
   }
 
   25% {
-    transform: translateX(2rem);
+    transform: translateX(6rem);
   }
 
   50% {
-    transform: translateX(4rem);
+    transform: translateX(12rem);
   }
   75% {
-    transform: translateX(2rem);
+    transform: translateX(6rem);
   }
   100% {
     transform: translateX(0);
@@ -133,9 +193,9 @@ const CssPractice1 = () => {
   return (
     <StyledCssPractice1 animate={playing}>
       <div>
-        <button onClick={() => setPlaying(!playing)}>
+        <Button onClick={() => setPlaying(!playing)}>
           {playing ? "pause animations" : "play animations"}
-        </button>
+        </Button>
         <Flex>
           <>
             <p>Look it's a rotating square</p>
@@ -189,17 +249,13 @@ const StyledCssPractice1 = styled.div`
   }
 `;
 
-const Button = styled.button`
-  max-height: 3rem;
-  appearance: none;
-  border: 0;
-  &:focus {
-    outline: none;
-  }
-`;
 const Flex = styled.div`
   display: flex;
   align-content: center;
+`;
+
+const Grid = styled.div`
+  display: grid;
 `;
 
 export default PostContainer;
