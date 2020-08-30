@@ -22,8 +22,17 @@ const Post = ({ children, date, title }) => {
  */
 const PostContainer = () => (
   <StyledPostContainer>
-    <Post date="August 29" title="">
-      Hello
+    <Post date="August 29" title="v2">
+      <p>
+        I previously implemented my personal website using Vue.js, but it
+        quickly became hard to maintain without a proper component structure. So
+        I rewrote this site with React since I'm more familiar with it now than
+        I am with Vue.js.
+      </p>
+      <p>
+        Hopefully the ease of modifying content will encourage me to write more
+        often.
+      </p>
     </Post>
     <Post date="May 31" title="Unrest">
       <p>
@@ -73,10 +82,11 @@ const PostContainer = () => (
 
 const StyledPostContainer = styled.div`
   display: grid;
-  grid-row-gap: 1rem;
 `;
 
 const StyledPost = styled.div`
+  border-bottom: solid 1px grey;
+  line-height: 24px;
   .header {
     font-size: 1.5rem;
     justify-self: start;
