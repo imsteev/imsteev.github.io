@@ -126,17 +126,18 @@ const Button = styled.button`
   cursor: pointer;
   padding: 0 1.4rem;
   height: 3rem;
-  transition: box-shadow 0.2s linear;
   box-shadow: 3px 2px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  background-color: #004e89;
+  background: linear-gradient(to right, #6930c3, #7400b8);
   color: #f0efeb;
   transition: all 0.3s;
   :hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   :active {
+    opacity: 0.8;
     box-shadow: none;
+    background: linear-gradient(to right, #7400b8, #6930c3);
   }
   :focus {
     outline: none;
