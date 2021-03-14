@@ -1,20 +1,11 @@
 <script>
   import AllPosts from "./AllPosts.svelte";
+  import MetaHeader from "./MetaHeader.svelte";
 </script>
 
 <main>
   <div class="container">
-    <!-- turn this into a MetaHeaderInfo component  -->
-    <div class="meta-info-container">
-      <div>Stephen Chung</div>
-      <div>
-        <a href="https://www.github.com/imsteev" target="_blank">github</a>
-        &nbsp;
-        <a href="https://www.linkedin.com/in/imsteev/" target="_blank">
-          linkedin
-        </a>
-      </div>
-    </div>
+    <MetaHeader />
     <AllPosts />
   </div>
 </main>
@@ -33,22 +24,10 @@
     bottom: 0;
     display: grid;
     padding: 0 25vw;
+    justify-content: center;
     padding-top: 2rem;
     grid-template-rows: 3rem;
     grid-auto-rows: min-content;
-  }
-
-  .meta-info-container {
-    display: flex;
-    justify-content: space-between;
-    align-self: center;
-    padding-right: 2rem;
-    font-size: 0.9rem;
-  }
-
-  a {
-    color: #3454d1;
-    text-decoration: none;
   }
 
   @media (min-width: 640px) {
