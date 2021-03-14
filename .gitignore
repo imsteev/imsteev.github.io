@@ -1,4 +1,4 @@
 .DS_STORE
 .vscode
-*.pdf
-resume.md
+/node_modules/
+.DS_Store
