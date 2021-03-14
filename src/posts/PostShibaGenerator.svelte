@@ -1,15 +1,16 @@
 <script>
-  import Flex from "./../common/Flex.svelte";
+  import Post from "./Post.svelte";
+  import Flex from "../common/Flex.svelte";
   import Button from "../common/Button.svelte";
 
-  export let breed;
+  const randomShibaUrl = "https://dog.ceo/api/breed/shiba/images/random";
 
   $: randomDogUrl = "";
   $: loadingDog = false;
 
   const randomDogRefresh = () => {
     loadingDog = true;
-    fetch(`https://dog.ceo/api/breed/${breed}/images/random`, {})
+    fetch(randomShibaUrl, {})
       .then((resp) => {
         if (!resp.ok) {
           throw "Request failed";
@@ -27,8 +28,8 @@
   }
 </script>
 
-<div>
-  <Button onClick={randomDogRefresh}>another {breed}</Button>
+<Post title="Shiba Generator" date="August 31, 2020" enclosedTitle>
+  <Button onClick={randomDogRefresh}>another shiba</Button>
   <Flex>
     <figure style={{ padding: 0, margin: "1rem 0" }}>
       {#if !loadingDog}
@@ -38,4 +39,4 @@
       {/if}
     </figure>
   </Flex>
-</div>
+</Post>

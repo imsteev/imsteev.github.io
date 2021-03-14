@@ -1,10 +1,12 @@
 <script>
-  import Flex from "../common/Flex.svelte";
-  import Button from "../common/Button.svelte";
+  import Flex from "./../common/Flex.svelte";
+  import Button from "./../common/Button.svelte";
+  import Post from "./Post.svelte";
+
   $: isPlaying = false;
 </script>
 
-<div>
+<Post title="CSS Practice" date="August 30, 2020" enclosedTitle>
   <div>
     <Button onClick={() => (isPlaying = !isPlaying)}>
       {isPlaying ? "pause animations" : "play animations"}
@@ -16,7 +18,7 @@
       <div class={`box animate-${isPlaying}`} id="animation-2" />
     </Flex>
   </div>
-</div>
+</Post>
 
 <style>
   .box {
