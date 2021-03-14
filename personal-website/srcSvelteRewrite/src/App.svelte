@@ -1,5 +1,10 @@
+<script>
+  import AllPosts from "./AllPosts.svelte";
+</script>
+
 <main>
   <div class="container">
+    <!-- turn this into a MetaHeaderInfo component  -->
     <div class="meta-info-container">
       <div>Stephen Chung</div>
       <div>
@@ -10,10 +15,15 @@
         </a>
       </div>
     </div>
+    <AllPosts />
   </div>
 </main>
 
 <style>
+  :global(html) {
+    font-size: 14px;
+  }
+
   /* probably don't need a grid here... */
   .container {
     position: absolute;
