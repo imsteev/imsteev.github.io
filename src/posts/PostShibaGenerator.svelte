@@ -40,3 +40,11 @@
     </figure>
   </Flex>
 </Post>
+
+<style>
+  img {
+    max-height: 512px;
+    max-width: 512px;
+    object-fit: cover;
+  }
+</style>
