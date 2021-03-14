@@ -3,7 +3,6 @@ import styled from "styled-components";
 import PostContainer from "./PostContainer";
 
 function App() {
-  setTimeout(getColorsOnPage, 2500);
   return (
     <Container>
       <Meta>
@@ -22,12 +21,6 @@ function App() {
     </Container>
   );
 }
-
-const getColorsOnPage = () => {
-  for (const node of document.querySelectorAll("*")) {
-    console.log(node.style);
-  }
-};
 
 const Container = styled.div`
   position: absolute;
