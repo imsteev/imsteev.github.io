@@ -1,12 +1,13 @@
 <script>
+  import RandomDog from "./postContent/RandomDog.svelte";
   import CssPractice1 from "./postContent/CssPractice1.svelte";
   import Post from "./Post.svelte";
 </script>
 
 <div>
-  <!-- <Post title="Shiba Generator" date="August 31" enclosedTitle>
+  <Post title="Shiba Generator" date="August 31" enclosedTitle>
     <RandomDog breed="shiba" />
-  </Post> -->
+  </Post>
   <Post title="CSS Practice" date="August 30, 2020" enclosedTitle>
     <CssPractice1 />
   </Post>
