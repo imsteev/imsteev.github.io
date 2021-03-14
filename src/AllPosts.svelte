@@ -1,4 +1,5 @@
 <script>
+  import PostLexicalScope from "./posts/PostLexicalScope.svelte";
   import PostCssPractice from "./posts/PostCSSPractice.svelte";
   import PostShibaGenerator from "./posts/PostShibaGenerator.svelte";
   import PostUnrest from "./posts/PostUnrest.svelte";
@@ -8,6 +9,7 @@
 
 <div>
   <h1>Thoughts and experiments</h1>
+  <PostLexicalScope />
   <PostV3 />
   <PostShibaGenerator />
   <PostCssPractice />
