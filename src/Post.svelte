@@ -1,24 +1,29 @@
 <script>
   export let date;
   export let title;
-  export let enclosedTitle = false;
 </script>
 
-<div>
-  <p class="header">
-    {date}
-    {title && enclosedTitle ? `"${title}"` : title}
-    <slot />
-  </p>
+<div class="post-container">
+  <div class="header-title">
+    <div>{title}</div>
+    <div>{date}</div>
+  </div>
+  <div />
+  <slot />
 </div>
 
 <style>
-  div {
-    border-bottom: solid 1px grey;
+  .post-container {
     line-height: 24px;
   }
 
-  .header {
-    justify-self: start;
+  .header-title + div {
+    border-bottom: solid 1px grey;
+    margin-bottom: 1rem;
+  }
+
+  .header-title {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
