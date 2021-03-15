@@ -1,6 +1,6 @@
 <script>
-  import AllPosts from "./AllPosts.svelte";
-  import MetaHeader from "./MetaHeader.svelte";
+  import AllPosts from "./posts/AllPosts.svelte";
+  import MetaHeader from "./Header.svelte";
 </script>
 
 <main>
