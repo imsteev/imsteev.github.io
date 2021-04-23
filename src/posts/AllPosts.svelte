@@ -5,10 +5,12 @@
   import PostUnrest from "./PostUnrest.svelte";
   import PostV2 from "./PostV2.svelte";
   import PostV3 from "./PostV3.svelte";
+  import PostThoughtsOnGoodCode from "./PostThoughtsOnGoodCode.svelte";
 </script>
 
 <div>
   <h1>Thoughts and experiments</h1>
+  <PostThoughtsOnGoodCode />
   <PostLexicalScope />
   <PostV3 />
   <PostShibaGenerator />

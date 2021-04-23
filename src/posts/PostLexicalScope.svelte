@@ -11,7 +11,7 @@
   </p>
   <div>
     <span class="definition">
-      <i>relating to the words or vocabulary of a language</i>
+      relating to the words or vocabulary of a language
     </span>
   </div>
   <p>
@@ -41,7 +41,8 @@
 
   <Tldr>
     tl;dr: Lexical scope is just an umbrella phrase for "the scope that
-    Javascript determines at compile time".
+    Javascript determines at compile time", which unfortunately sounds like "it
+    depends".
   </Tldr>
 </Post>
 

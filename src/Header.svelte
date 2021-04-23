@@ -1,5 +1,5 @@
 <div class="meta-info-container">
-  <div>Stephen Chung</div>
+  <div>steev</div>
   <div>
     <a href="https://www.github.com/imsteev" target="_blank">github</a>
     <a href="https://www.linkedin.com/in/imsteev/" target="_blank">
